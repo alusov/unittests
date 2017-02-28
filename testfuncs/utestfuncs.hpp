@@ -11,7 +11,7 @@
 
 #define FUNCDESCR "../funcdesc.json"
 #define EPSILON 0.0001
-#define OUTEXPR false
+#define OUTEXPR true
 
 using namespace snowgoose::expression;
 
@@ -76,11 +76,13 @@ TEST_F(FuncsTest, TestAckley3)
 	Test(K.Ackley3, Ackley3<double>());
 }
 
+/*this test is for full interval library version only*/
+/*
 TEST_F(FuncsTest, TestAckley4)
 {
 	Test(K.Ackley4, Ackley4<double>());
-	Test(K.Ackley4, Ackley4<double>(), 1);
 }
+*/
 
 TEST_F(FuncsTest, TestAdjiman)
 {
@@ -96,15 +98,7 @@ TEST_F(FuncsTest, TestAlpine1)
 
 TEST_F(FuncsTest, TestAlpine2)
 {
-	int N = 3;
-	auto expr = Alpine2<double>(N);
-	auto desc = dfr.getdesr(K.Alpine2);
-	double x = desc.globMinX[0][0];
-	std::vector<double> globMinX(N, x);
-	double globMinY  = expr.calc(globMinX, FuncAlg<double>());
-	double expected = ::pow(desc.globMinY, N);
-
-	ASSERT_NEAR(expected, globMinY, EPSILON);
+    Test(K.Alpine2, Alpine2<double>());
 }
 
 TEST_F(FuncsTest, TestBrad)

@@ -30,9 +30,9 @@
       {"a": -32.0, "b": 32.0}
     ],
     "globMin": [
-      { "x" : [0.0, -0.4] }
+      { "x" : [-32.0, -32.0] }
     ],
-    "globMinY": -219.1418
+    "globMinY": 82.4617
   },
   "Ackley4" : {
     "description": "Ackley 4 function",
@@ -43,10 +43,9 @@
       {"a": -32.0, "b": 32.0}
     ],
     "globMin": [
-      { "x" : [-1.479252, -0.739807] },
-      { "x" : [ 1.479252, -0.739807] }
+      { "x" : [-23.5625, -29.0625] }
     ],
-    "globMinY": -3.917275
+    "globMinY": -4.9999521818884851
   },
   "Adjiman" : {
     "description": "Adjiman function",
@@ -74,15 +73,17 @@
   },
   "Alpine2" : {
     "description": "Alpine 2 function",
-    "comment" : "Note, global minimum is 2.808 in power of dim",
-    "anyDim" : true,
+    "anyDim" : false,
+    "dim": 3,
     "bounds": [
+      {"a": 0.0, "b": 10.0},
+      {"a": 0.0, "b": 10.0},
       {"a": 0.0, "b": 10.0}
     ],
     "globMin": [
-      { "x" : [7.9170526982459462172] }
+      { "x" : [7.9170526982459462172, 7.9170526982459462172, 4.81584] }
     ],
-    "globMinY": 2.8081311800070053291
+    "globMinY": -17.212404253615528
   },
   "Brad" : {
     "description": "Brad function",
@@ -94,17 +95,17 @@
       {"a": 0.01, "b": 2.5}
     ],
     "globMin": [
-      { "x" : [0.0824, 1.133, 2.3437] }
+      { "x" : [-0.249878, 2.49992, 2.49985] }
     ],
-    "globMinY": 0.00821487
+    "globMinY": 6.9360214289615749
   },
   "BartelsConn" : {
     "description": "Bartels Conn Function",
     "anyDim" : false,
 	"dim": 2,
     "bounds": [
-      {"a": -500.0, "b": 500.0},
-	  {"a": -500.0, "b": 500.0}
+      {"a": -10.0, "b": 10.0},
+	  {"a": -10.0, "b": 10.0}
     ],
     "globMin": [
       { "x" : [0.0, 0.0] }

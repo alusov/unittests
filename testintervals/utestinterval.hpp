@@ -11,7 +11,6 @@
 #include "descfunc/keys.hpp"
 #include "pointgen/randpointgen.hpp"
 #include "box/box.hpp"
-#include "interval/interval_air.hpp"
 
 #define FUNCDESCR "../funcdesc.json"
 #define OFFSET 0.001
@@ -112,8 +111,7 @@ TEST_F(IntervalTest, TestIntervalAlpine1)
 
 TEST_F(IntervalTest, TestIntervalAlpine2)
 {
-	int N = 3;
-	TestInterval(K.Alpine2, Alpine2<double>(N), Alpine2<Interval<double>>(N), N);
+	TestInterval(K.Alpine2, Alpine2<double>(), Alpine2<Interval<double>>());
 }
 
 TEST_F(IntervalTest, TestIntervalBrad)
