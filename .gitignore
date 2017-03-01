@@ -1,5 +1,5 @@
 #bin files
-*.a
+#*.a
 *.o
 *.exe
 
