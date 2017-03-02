@@ -59,10 +59,12 @@ COPTS=$(COMOPTS) $(ADDIT_INCS) $(PCOPTS)
 CPPOPTS= $(COMOPTS) $(ADDIT_INCS) $(PCPPOPTS)
 
 #Linker options for static linking
-LDFLAGS = -lm -ldl $(OPENMPLD) $(PTHREADLD) $(STATIC) -L$(ROOT)gtest/lib -lgtest -lgtest_main
+LDFLAGS = -lm -ldl $(OPENMPLD) $(PTHREADLD) $(STATIC) -L$(ROOT)gtest/lib -lgtest
 
 
 MFLAGS = MPICC=$(MPICC) COPTS="$(COPTS)" CPPOPTS="$(CPPOPTS) LIBTOOL="$(LIBTOOL)"
+
+GTEST_LIB = gtest/lib
 
 
 all: $(BINS) $(LIBS)
@@ -89,7 +91,7 @@ dep:
 	$(CPP) $(CPPOPTS) -MM -c *.cpp >> deps.inc;\
         true
 
-.o.exe:
+.o.exe: $(GTEST_LIB)/*.a
 	$(CPP) $(OPTS) -o $@ $< $(LIBS) $(EXTLIBS) $(LDFLAGS)
 
 .cpp.o:
