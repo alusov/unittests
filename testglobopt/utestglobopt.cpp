@@ -13,7 +13,9 @@
 
 #include <limits.h>
 #include "gtest/gtest.h"
+#define FUNCDESCR "../funcdesc.json"
 #include "utestglobopt.hpp"
+
  
 int main(int argc, char **argv) 
 {

@@ -9,7 +9,7 @@
 #include "descfunc/descfunc.hpp"
 #include "descfunc/keys.hpp"
 
-#define FUNCDESCR "../funcdesc.json"
+
 #define EPSILON 0.0001
 #define OUTEXPR true
 

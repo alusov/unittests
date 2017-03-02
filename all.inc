@@ -66,7 +66,6 @@ MFLAGS = MPICC=$(MPICC) COPTS="$(COPTS)" CPPOPTS="$(CPPOPTS) LIBTOOL="$(LIBTOOL)
 
 GTEST_LIB = gtest/lib
 
-
 all: $(BINS) $(LIBS)
 
 tests:

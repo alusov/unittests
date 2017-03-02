@@ -34,10 +34,6 @@
 #include <solver/basesolver.hpp>
 #include <box/boxutils.hpp>
 
-
-#define FUNCDESCR "../funcdesc.json"
-//for debug in NetBeans
-//#define FUNCDESCR "funcdesc.json"
 #define EPSILON 0.001
 #define MAX_COUNT 10000
 

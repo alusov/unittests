@@ -12,7 +12,6 @@
 #include "pointgen/randpointgen.hpp"
 #include "box/box.hpp"
 
-#define FUNCDESCR "../funcdesc.json"
 #define OFFSET 0.001
 
 using namespace snowgoose::expression;
