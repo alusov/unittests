@@ -14,15 +14,18 @@
 
 #define OFFSET 0.001
 
+const char* JSONPATH;
+
 using namespace snowgoose::expression;
 using namespace snowgoose;
 
 class IntervalTest : public ::testing::Test {
  protected:
 
-	IntervalTest() : dfr(FUNCDESCR)
-	{
-	}
+  IntervalTest() : dfr(JSONPATH)
+  {
+  }
+
   virtual void SetUp() 
   {
 		

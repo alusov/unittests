@@ -13,12 +13,14 @@
 #define EPSILON 0.0001
 #define OUTEXPR true
 
+const char* JSONPATH;
+
 using namespace snowgoose::expression;
 
 class FuncsTest : public ::testing::Test {
  protected:
 
-  FuncsTest() : dfr(FUNCDESCR)
+  FuncsTest() : dfr(JSONPATH)
   {
   }
   

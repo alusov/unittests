@@ -37,6 +37,8 @@
 #define EPSILON 0.001
 #define MAX_COUNT 10000
 
+const char* JSONPATH;
+
 using namespace snowgoose::expression;
   
 
@@ -44,7 +46,7 @@ using namespace snowgoose::expression;
 class GlobOptTest : public ::testing::Test {
  protected:
 
-  GlobOptTest() : dfr(FUNCDESCR)
+  GlobOptTest() : dfr(JSONPATH)
   {
   }
   
