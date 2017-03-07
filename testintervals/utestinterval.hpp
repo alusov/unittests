@@ -50,7 +50,7 @@ class IntervalTest : public ::testing::Test {
 		}
 		RandomPointGenerator<double> rg(box);
 		std::vector<double> point(dim, 0.0);
-		rg.getPoint(point);
+		rg.getPoint(point.data());
 		return point;
 	}
 
