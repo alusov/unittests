@@ -4,7 +4,7 @@
 #include <limits.h>
 #include <algorithm>
 #include "gtest/gtest.h"
-#include "expression/testfuncs.hpp"
+#include "testfuncs/testfuncs.hpp"
 #include "expression/expr.hpp"
 #include "expression/algorithm.hpp"
 #include "descfunc/descfunc.hpp"
@@ -18,6 +18,7 @@ const char* JSONPATH;
 
 using namespace snowgoose::expression;
 using namespace snowgoose;
+using namespace OPTITEST;
 
 class IntervalTest : public ::testing::Test {
  protected:

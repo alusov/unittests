@@ -65,7 +65,7 @@ LDFLAGS = -lm -ldl $(OPENMPLD) $(PTHREADLD) $(STATIC) -L$(ROOT)gtest/lib -lgtest
 MFLAGS = MPICC=$(MPICC) COPTS="$(COPTS)" CPPOPTS="$(CPPOPTS) LIBTOOL="$(LIBTOOL)"
 
 GTEST_LIB = gtest/lib
-GTEST_JSON_PATH= "$(ROOT)funcdesc.json"
+GTEST_JSON_PATH= "$(ROOT)../OPTITEST/testfuncs/funcdesc.json"
 
 all: $(BINS) $(LIBS)
 

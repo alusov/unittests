@@ -19,7 +19,7 @@
 #include "gtest/gtest.h"
 
 #include "exprbndsupp.hpp"
-#include "expression/testfuncs.hpp"
+#include "testfuncs/testfuncs.hpp"
 #include "expression/expr.hpp"
 #include "expression/algorithm.hpp"
 #include "descfunc/descfunc.hpp"
@@ -40,6 +40,7 @@
 const char* JSONPATH;
 
 using namespace snowgoose::expression;
+using namespace OPTITEST;
   
 
 
@@ -121,7 +122,7 @@ class GlobOptTest : public ::testing::Test {
     double* record = rs.getPoint();
     if(record != nullptr){
         for(int i=0; i < dim; i++)
-            std::cout << "x[" << i << "]=" << *(record+i) << ' ';
+            std::cout << "x[" << i << "]=" << std::setprecision(15) << *(record+i) << ' ';
         std::cout << '\n';
     }
         
@@ -157,6 +158,7 @@ TEST_F(GlobOptTest, TestGlobOptAckley3)
 	testglobopt(K.Ackley3, expr, exprInterval);
 }
 
+
 /*this test is for full interval library version only*/
 /*
 TEST_F(GlobOptTest, TestGlobOptAckley4)
@@ -165,6 +167,7 @@ TEST_F(GlobOptTest, TestGlobOptAckley4)
     auto exprInterval = Ackley4<Interval<double>>();
 	testglobopt(K.Ackley4, expr, exprInterval);
 }*/
+
 
 TEST_F(GlobOptTest, TestGlobOptAdjiman)
 {
@@ -251,6 +254,13 @@ TEST_F(GlobOptTest, TestGlobOptBird)
     auto exprInterval = Bird<Interval<double>>();
     testglobopt(K.Bird, expr, exprInterval);
 }
+/*
+TEST_F(GlobOptTest, TestGlobOptDeckkersAarts)
+{
+    auto expr = DeckkersAarts<double>();
+    auto exprInterval = DeckkersAarts<Interval<double>>();
+    testglobopt(K.DeckkersAarts, expr, exprInterval);
+}*/
 
 
 #endif /* UTESTGLOBOPT_HPP */
