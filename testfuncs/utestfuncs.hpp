@@ -238,14 +238,34 @@ TEST_F(FuncsTest, TestColville)
         Test(K.Colville, Colville<double>());
 }
 
+TEST_F(FuncsTest, TestComplex)
+{
+        Test(K.Complex, Complex<double>());
+}
+
 TEST_F(FuncsTest, TestCosineMixture)
 {
 	Test(K.CosineMixture, CosineMixture<double>());
 }
 
+TEST_F(FuncsTest, TestCrossInTray)
+{
+	Test(K.CrossInTray, CrossInTray<double>());
+}
+
+TEST_F(FuncsTest, TestCrossLeg)
+{
+	Test(K.CrossLeg, CrossLeg<double>());
+}
+
 TEST_F(FuncsTest, TestCube)
 {
         Test(K.Cube, Cube<double>());
+}
+
+TEST_F(FuncsTest, TestDavis)
+{
+        Test(K.Davis, Davis<double>());
 }
 
 TEST_F(FuncsTest, TestDeb1)
@@ -270,6 +290,11 @@ TEST_F(FuncsTest, TestDolan)
         Test(K.Dolan, Dolan<double>());
 }
 
+TEST_F(FuncsTest, TestDropWave)
+{
+        Test(K.DropWave, DropWave<double>());
+}
+
 TEST_F(FuncsTest, TestEasom)
 {
         Test(K.Easom, Easom<double>());
@@ -288,6 +313,11 @@ TEST_F(FuncsTest, TestEggHolder)
 TEST_F(FuncsTest, TestElAttarVidyasagarDutt)
 {
         Test(K.ElAttarVidyasagarDutt, ElAttarVidyasagarDutt<double>());
+}
+
+TEST_F(FuncsTest, TestEngvall)
+{
+        Test(K.Engvall, Engvall<double>());
 }
 
 TEST_F(FuncsTest, TestExp2)
@@ -310,6 +340,16 @@ TEST_F(FuncsTest, TestFreudensteinRoth)
 TEST_F(FuncsTest, TestGoldsteinPrice)
 {
         Test(K.GoldsteinPrice, GoldsteinPrice<double>());
+}
+
+TEST_F(FuncsTest, TestGramacyLee2)
+{
+        Test(K.GramacyLee2, GramacyLee2<double>());
+}
+
+TEST_F(FuncsTest, TestGramacyLee3)
+{
+        Test(K.GramacyLee3, GramacyLee3<double>());
 }
 
 TEST_F(FuncsTest, TestGriewank)
@@ -406,9 +446,7 @@ TEST_F(FuncsTest, TestMishra6)
 
 TEST_F(FuncsTest, TestMishra7)
 {
-        int N = 3;
-        auto expr = Mishra7<double>(N);
-        TestCustomDim(K.Mishra7, expr, N);
+        Test(K.Mishra7, Mishra7<double>());
 }
 
 TEST_F(FuncsTest, TestMishra8)
@@ -431,11 +469,6 @@ TEST_F(FuncsTest, TestPathological)
         int N = 3;
         auto expr = Pathological<double>(N);
         TestCustomDim(K.Pathological, expr, N);
-}
-
-TEST_F(FuncsTest, TestPenHolder)
-{
-        Test(K.PenHolder, PenHolder<double>());
 }
 
 TEST_F(FuncsTest, TestPeriodic)
@@ -484,11 +517,29 @@ TEST_F(FuncsTest, TestPrice4)
         Test(K.Price4, Price4<double>());
 }
 
+TEST_F(FuncsTest, TestProblem02)
+{
+        Test(K.Problem02, Problem02<double>());
+}
+
+TEST_F(FuncsTest, TestProblem04)
+{
+        Test(K.Problem04, Problem04<double>());
+}
+
+TEST_F(FuncsTest, TestProblem05)
+{
+        Test(K.Problem05, Problem05<double>());
+}
+
+TEST_F(FuncsTest, TestProblem06)
+{
+        Test(K.Problem06, Problem06<double>());
+}
+
 TEST_F(FuncsTest, TestQing)
 {
-        int N = 3;
-        auto expr = Qing<double>(N);
-        TestCustomDim(K.Qing, expr, N);
+        Test(K.Qing, Qing<double>());
 }
 
 TEST_F(FuncsTest, TestQuadratic)
@@ -501,27 +552,6 @@ TEST_F(FuncsTest, TestQuintic)
         int N = 3;
         auto expr = Quintic<double>(N);
         TestCustomDim(K.Quintic, expr, N);
-}
-
-TEST_F(FuncsTest, TestRana)
-{
-        int N = 3;
-        auto expr = Rana<double>(N);
-        TestCustomDim(K.Rana, expr, N);
-}
-
-TEST_F(FuncsTest, TestRipple1)
-{
-        int N = 3;
-        auto expr = Ripple1<double>(N);
-        TestCustomDim(K.Ripple1, expr, N);
-}
-
-TEST_F(FuncsTest, TestRipple25)
-{
-        int N = 3;
-        auto expr = Ripple25<double>(N);
-        TestCustomDim(K.Ripple25, expr, N);
 }
 
 TEST_F(FuncsTest, TestRosenbrock)
@@ -544,11 +574,6 @@ TEST_F(FuncsTest, TestRotatedEllipse)
 TEST_F(FuncsTest, TestRotatedEllipse2)
 {
         Test(K.RotatedEllipse2, RotatedEllipse2<double>());
-}
-
-TEST_F(FuncsTest, TestRump)
-{
-        Test(K.Rump, Rump<double>());
 }
 
 TEST_F(FuncsTest, TestScahffer1)
@@ -629,9 +654,7 @@ TEST_F(FuncsTest, TestSchwefel2_23)
 
 TEST_F(FuncsTest, TestSchwefel2_26)
 {
-        int N = 3;
-        auto expr = Schwefel2_26<double>(N);
-        TestCustomDim(K.Schwefel2_26, expr, N);
+        Test(K.Schwefel2_26, Schwefel2_26<double>());
 }
 
 TEST_F(FuncsTest, TestSchwefel2_36)
