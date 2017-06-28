@@ -79,7 +79,7 @@ class GlobOptTest : public ::testing::Test {
 
     //Setup Cut Factory
     NUC::RecordSupplier<double> rs(std::numeric_limits<double>::max());
-    COMPI::Functor<double>* pf = mpp->mObjectives.at(0);
+    auto pf = mpp->mObjectives.at(0);
     ExprBoundSupplier ibs(dim, exprInterval);
     NUC::LBCutFactory<double> cf(EPSILON, rs, ibs);
 

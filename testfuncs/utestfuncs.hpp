@@ -20,43 +20,18 @@ using namespace OPTITEST;
 
 class FuncsTest : public ::testing::Test {
  protected:
-
-  FuncsTest() : dfr(JSONPATH)
-  {
-  }
-  
-  virtual void SetUp() 
-  {
-		
-  }
- 
-  virtual void TearDown() 
-  {
-  }
-
-	void TestCustomDim(const std::string& key,const Expr<double>& expr, int dim, int indexGlobMin =0)
+	FuncsTest() : dfr(JSONPATH)
 	{
-		if (OUTEXPR) std::cout << '\n' << expr << '\n';
-		auto desc = dfr.getdesr(key);
-		std::vector<double> globMinX = std::vector<double>(dim, desc.globMinX[indexGlobMin][0]);
-		double globMinY = expr.calc(globMinX, FuncAlg<double>());		
+	}
+	void Test(const std::string& key,const Expr<double>& expr, int dim=1)
+	{
+		auto desc = dfr.getdesr(key, dim);
+		std::vector<double> globMinX = desc.globMinX[0];
+		double globMinY = expr.calc(FuncAlg<double>(globMinX));
 		double expected = desc.globMinY;
 		double epsilon = EPSILON;
 		ASSERT_NEAR(expected, globMinY, epsilon);
 	}
-
-	void Test(const std::string& key,const Expr<double>& expr, int indexGlobMin = 0)
-	{
-		if (OUTEXPR) std::cout << '\n' << expr << '\n';
-		auto desc = dfr.getdesr(key);
-		int dim = desc.dim;
-		std::vector<double> globMinX = desc.globMinX[indexGlobMin];
-		double globMinY = expr.calc(globMinX, FuncAlg<double>());
-		double expected = desc.globMinY;
-		double epsilon = EPSILON;
-		ASSERT_NEAR(expected, globMinY, epsilon);
-	}
-
 	DescFuncReader dfr;
 };
 	 
@@ -64,14 +39,14 @@ TEST_F(FuncsTest, TestAckley1)
 {
 	int N = 3;
 	auto expr = Ackley1<double>(N);
-	TestCustomDim(K.Ackley1, expr, N);
+	Test(K.Ackley1, expr, N);
 }
 
 TEST_F(FuncsTest, TestAckley2)
 {
 	int N = 4;
 	auto expr = Ackley2<double>(N);
-	TestCustomDim(K.Ackley2, expr, N);
+	Test(K.Ackley2, expr, N);
 }
 
 TEST_F(FuncsTest, TestAckley3)
@@ -96,7 +71,7 @@ TEST_F(FuncsTest, TestAlpine1)
 {
 	int N = 3;
 	auto expr = Alpine1<double>(N);
-	TestCustomDim(K.Alpine1, expr, N);
+	Test(K.Alpine1, expr, N);
 }
 
 TEST_F(FuncsTest, TestAlpine2)
@@ -193,7 +168,7 @@ TEST_F(FuncsTest, TestBrown)
 {
         int N = 3;
         auto expr = Brown<double>(N);
-        TestCustomDim(K.Brown, expr, N);
+        Test(K.Brown, expr, N);
 }
 
 TEST_F(FuncsTest, TestBukin2)
@@ -230,7 +205,7 @@ TEST_F(FuncsTest, TestChungReynolds)
 {
         int N = 3;
         auto expr = ChungReynolds<double>(N);
-        TestCustomDim(K.ChungReynolds, expr, N);
+        Test(K.ChungReynolds, expr, N);
 }
 
 TEST_F(FuncsTest, TestColville)
@@ -272,7 +247,7 @@ TEST_F(FuncsTest, TestDeb1)
 {
         int N = 3;
         auto expr = Deb1<double>(N);
-        TestCustomDim(K.Deb1, expr, N);
+        Test(K.Deb1, expr, N);
 }
 
 TEST_F(FuncsTest, TestDeckkersAarts)
@@ -329,7 +304,7 @@ TEST_F(FuncsTest, TestExponential)
 {
         int N = 3;
         auto expr = Exponential<double>(N);
-        TestCustomDim(K.Exponential, expr, N);
+        Test(K.Exponential, expr, N);
 }
 
 TEST_F(FuncsTest, TestFreudensteinRoth)
@@ -356,7 +331,7 @@ TEST_F(FuncsTest, TestGriewank)
 {
         int N = 3;
         auto expr = Griewank<double>(N);
-        TestCustomDim(K.Griewank, expr, N);
+        Test(K.Griewank, expr, N);
 }
 
 TEST_F(FuncsTest, TestHansen)
@@ -468,7 +443,7 @@ TEST_F(FuncsTest, TestPathological)
 {
         int N = 3;
         auto expr = Pathological<double>(N);
-        TestCustomDim(K.Pathological, expr, N);
+        Test(K.Pathological, expr, N);
 }
 
 TEST_F(FuncsTest, TestPeriodic)
@@ -480,21 +455,21 @@ TEST_F(FuncsTest, TestPinter)
 {
         int N = 3;
         auto expr = Pinter<double>(N);
-        TestCustomDim(K.Pinter, expr, N);
+        Test(K.Pinter, expr, N);
 }
 
 TEST_F(FuncsTest, TestPowellSingular2)
 {
         int N = 3;
         auto expr = PowellSingular2<double>(N);
-        TestCustomDim(K.PowellSingular2, expr, N);
+        Test(K.PowellSingular2, expr, N);
 }
 
 TEST_F(FuncsTest, TestPowellSum)
 {
         int N = 3;
         auto expr = PowellSum<double>(N);
-        TestCustomDim(K.PowellSum, expr, N);
+        Test(K.PowellSum, expr, N);
 }
 
 TEST_F(FuncsTest, TestPrice1)
@@ -551,14 +526,14 @@ TEST_F(FuncsTest, TestQuintic)
 {
         int N = 3;
         auto expr = Quintic<double>(N);
-        TestCustomDim(K.Quintic, expr, N);
+        Test(K.Quintic, expr, N);
 }
 
 TEST_F(FuncsTest, TestRosenbrock)
 {
         int N = 3;
         auto expr = Rosenbrock<double>(N);
-        TestCustomDim(K.Rosenbrock, expr, N);
+        Test(K.Rosenbrock, expr, N);
 }
 
 TEST_F(FuncsTest, TestRosenbrockModified)
@@ -601,7 +576,7 @@ TEST_F(FuncsTest, TestSchafferF6)
 {
         int N = 3;
         auto expr = SchafferF6<double>(N);
-        TestCustomDim(K.SchafferF6, expr, N);
+        Test(K.SchafferF6, expr, N);
 }
 
 TEST_F(FuncsTest, TestSchmidtVetters)
@@ -613,14 +588,14 @@ TEST_F(FuncsTest, TestSchumerSteiglitz)
 {
         int N = 3;
         auto expr = SchumerSteiglitz<double>(N);
-        TestCustomDim(K.SchumerSteiglitz, expr, N);
+        Test(K.SchumerSteiglitz, expr, N);
 }
 
 TEST_F(FuncsTest, TestSchwefel)
 {
         int N = 3;
         auto expr = Schwefel<double>(N, 1.0);
-        TestCustomDim(K.Schwefel, expr, N);
+        Test(K.Schwefel, expr, N);
 }
 
 TEST_F(FuncsTest, TestSchwefel1_2)
@@ -628,28 +603,28 @@ TEST_F(FuncsTest, TestSchwefel1_2)
 {
         int N = 3;
         auto expr = Schwefel1_2<double>(N);
-        TestCustomDim(K.Schwefel1_2, expr, N);
+        Test(K.Schwefel1_2, expr, N);
 }
 
 TEST_F(FuncsTest, TestSchwefel2_20)
 {
         int N = 3;
         auto expr = Schwefel2_20<double>(N);
-        TestCustomDim(K.Schwefel2_20, expr, N);
+        Test(K.Schwefel2_20, expr, N);
 }
 
 TEST_F(FuncsTest, TestSchwefel2_22)
 {
         int N = 3;
         auto expr = Schwefel2_22<double>(N);
-        TestCustomDim(K.Schwefel2_22, expr, N);
+        Test(K.Schwefel2_22, expr, N);
 }
 
 TEST_F(FuncsTest, TestSchwefel2_23)
 {
         int N = 3;
         auto expr = Schwefel2_23<double>(N);
-        TestCustomDim(K.Schwefel2_23, expr, N);
+        Test(K.Schwefel2_23, expr, N);
 }
 
 TEST_F(FuncsTest, TestSchwefel2_26)
@@ -666,7 +641,7 @@ TEST_F(FuncsTest, TestSchwefel2_4)
 {
         int N = 3;
         auto expr = Schwefel2_4<double>(N);
-        TestCustomDim(K.Schwefel2_4, expr, N);
+        Test(K.Schwefel2_4, expr, N);
 }
 
 
@@ -710,14 +685,14 @@ TEST_F(FuncsTest, TestSphere)
 {
         int N = 3;
         auto expr = Sphere<double>(N);
-        TestCustomDim(K.Sphere, expr, N);
+        Test(K.Sphere, expr, N);
 }
 
 TEST_F(FuncsTest, TestStrechedVSineWave)
 {
         int N = 3;
         auto expr = StrechedVSineWave<double>(N);
-        TestCustomDim(K.StrechedVSineWave, expr, N);
+        Test(K.StrechedVSineWave, expr, N);
 }
 
 TEST_F(FuncsTest, TestStyblinskiTang)
@@ -729,7 +704,7 @@ TEST_F(FuncsTest, TestSumSquares)
 {
         int N = 3;
         auto expr = SumSquares<double>(N);
-        TestCustomDim(K.SumSquares, expr, N);
+        Test(K.SumSquares, expr, N);
 }
 
 TEST_F(FuncsTest, TestTable1HolderTable1)
@@ -777,14 +752,14 @@ TEST_F(FuncsTest, TestTrigonometric1)
 {
         int N = 3;
         auto expr = Trigonometric1<double>(N);
-        TestCustomDim(K.Trigonometric1, expr, N);
+        Test(K.Trigonometric1, expr, N);
 }
 
 TEST_F(FuncsTest, TestTrigonometric2)
 {
         int N = 3;
         auto expr = Trigonometric2<double>(N);
-        TestCustomDim(K.Trigonometric2, expr, N);
+        Test(K.Trigonometric2, expr, N);
 }
 
 TEST_F(FuncsTest, TestTripod)
@@ -821,7 +796,7 @@ TEST_F(FuncsTest, TestWWavy)
 {
         int N = 3;
         auto expr = WWavy<double>(N);
-        TestCustomDim(K.WWavy, expr, N);
+        Test(K.WWavy, expr, N);
 }
 
 /*
@@ -850,14 +825,14 @@ TEST_F(FuncsTest, TestWeierstrass)
 {
         int N = 3;
         auto expr = Weierstrass<double>(N);
-        TestCustomDim(K.Weierstrass, expr, N);
+        Test(K.Weierstrass, expr, N);
 }
 
 TEST_F(FuncsTest, TestWhitley)
 {
         int N = 3;
         auto expr = Whitley<double>(N);
-        TestCustomDim(K.Whitley, expr, N);
+        Test(K.Whitley, expr, N);
 }
 
 TEST_F(FuncsTest, TestWolfe)
@@ -869,28 +844,28 @@ TEST_F(FuncsTest, TestXinSheYang2)
 {
         int N = 3;
         auto expr = XinSheYang2<double>(N);
-        TestCustomDim(K.XinSheYang2, expr, N);
+        Test(K.XinSheYang2, expr, N);
 }
 
 TEST_F(FuncsTest, TestXinSheYang3)
 {
         int N = 3;
         auto expr = XinSheYang3<double>(N);
-        TestCustomDim(K.XinSheYang3, expr, N);
+        Test(K.XinSheYang3, expr, N);
 }
 
 TEST_F(FuncsTest, TestXinSheYang4)
 {
         int N = 3;
         auto expr = XinSheYang4<double>(N);
-        TestCustomDim(K.XinSheYang4, expr, N);
+        Test(K.XinSheYang4, expr, N);
 }
 
 TEST_F(FuncsTest, TestZakharov)
 {
         int N = 3;
         auto expr = Zakharov<double>(N);
-        TestCustomDim(K.Zakharov, expr, N);
+        Test(K.Zakharov, expr, N);
 }
 
 TEST_F(FuncsTest, TestZettl)

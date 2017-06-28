@@ -50,7 +50,7 @@ public:
             Interval<double> interval(box.mA[i], box.mB[i]);
             intervals.push_back(interval);
         }
-        return mExpr.calc(intervals, InterEvalAlg<double>()).lb();
+        return mExpr.calc(InterEvalAlg<double>(intervals)).lb();
     }
 
 private:

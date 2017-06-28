@@ -65,9 +65,9 @@ class IntervalTest : public ::testing::Test {
 	void TestInterval(const std::string& key,const Expr<double> &exprFunc,const Expr<Interval<double>> &exprInterval, int customDim = 0)
 	{
 		auto point = getRandomPoint(key, customDim);
-		double funcValue = exprFunc.calc(point, FuncAlg<double>());
+		double funcValue = exprFunc.calc(FuncAlg<double>(point));
 		auto intervals = getIntervals(point);
-		auto interval = exprInterval.calc(intervals, InterEvalAlg<double>());
+		auto interval = exprInterval.calc(InterEvalAlg<double>(intervals));
 
 		double lowBound = interval.lb();
 		double upperBound = interval.rb();
@@ -75,7 +75,6 @@ class IntervalTest : public ::testing::Test {
 		ASSERT_GE(funcValue, lowBound);
 		ASSERT_LE(funcValue, upperBound);
 	}
-
 	DescFuncReader dfr;
 };
 
