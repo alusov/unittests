@@ -14,7 +14,7 @@ LIBTOOL = ar -r
 #PCOPTS=-maltivec -D _OPT_ALTIVEC_
 
 #Pthread linking support options
-PTHREADLD=-lpthread
+PTHREADLD=-pthread
 
 #OpenMP specific compiler options
 #OPENMPOPT=-fopenmp

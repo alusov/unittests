@@ -19,6 +19,7 @@
 #include "expression/algorithm.hpp"
 #include <cutfact/lbcutfact/boundsupp.hpp>
 #include "expression/expr.hpp"
+#include "testfuncs/benchmarks.hpp"
 
 
 using namespace snowgoose::interval;
@@ -34,28 +35,27 @@ public:
      * Constructor
      * @param n problem dimension
      */
-    ExprBoundSupplier(int n, Expr<Interval<double>> expr) : mExpr(expr), mN(n) {
+    ExprBoundSupplier(const PtrBench<double> benchmark) : bm(benchmark) {
 
     }
 
     /**
      * Retrieve 
      * @param box to find the bound
-     * @return bound
+     * @return low bound
      */
     double getBound(const snowgoose::Box<double>& box) {
         std::vector<Interval<double>> intervals;
-        for(int i=0; i < mN; i++)
+        for(int i=0; i < bm->getDim(); i++)
         {
             Interval<double> interval(box.mA[i], box.mB[i]);
             intervals.push_back(interval);
         }
-        return mExpr.calc(InterEvalAlg<double>(intervals)).lb();
+        return bm->calcInterval(intervals).lb();
     }
 
 private:
-    Expr<Interval<double>> mExpr;
-    int mN;
+    PtrBench<double> bm;
 };
 
 
