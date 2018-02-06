@@ -2,7 +2,7 @@
 #define UTESTFUNCS_HPP
 
 #include "gtest/gtest.h"
-#include "testfuncs/benchmarks.hpp"
+#include "testfuncs/manydim/benchmarks.hpp"
 #define EPSILON 0.001
 
 class FuncsTest : public ::testing::Test {

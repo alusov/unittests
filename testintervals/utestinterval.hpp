@@ -4,8 +4,8 @@
 #include <limits.h>
 #include <algorithm>
 #include "gtest/gtest.h"
-#include "testfuncs/testfuncs.hpp"
-#include "testfuncs/benchmarks.hpp"
+#include "testfuncs/manydim/testfuncs.hpp"
+#include "testfuncs/manydim/benchmarks.hpp"
 #include "expression/expr.hpp"
 #include "expression/algorithm.hpp"
 #include "pointgen/randpointgen.hpp"

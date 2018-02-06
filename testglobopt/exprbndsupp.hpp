@@ -19,7 +19,7 @@
 #include "expression/algorithm.hpp"
 #include <cutfact/lbcutfact/boundsupp.hpp>
 #include "expression/expr.hpp"
-#include "testfuncs/benchmarks.hpp"
+#include "testfuncs/manydim/benchmarks.hpp"
 
 
 using namespace snowgoose::interval;

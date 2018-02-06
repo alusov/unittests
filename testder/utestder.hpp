@@ -3,8 +3,8 @@
 
 #include <limits.h>
 #include "gtest/gtest.h"
-#include "testfuncs/testfuncs.hpp"
-#include "testfuncs/benchmarks.hpp"
+#include "testfuncs/manydim/testfuncs.hpp"
+#include "testfuncs/manydim/benchmarks.hpp"
 #include "expression/expr.hpp"
 #include "expression/algder.hpp"
 #include "derivatives/valder.hpp"

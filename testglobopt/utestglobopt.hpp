@@ -20,8 +20,8 @@
 #include <memory>
 
 #include "exprbndsupp.hpp"
-#include "testfuncs/testfuncs.hpp"
-#include "testfuncs/benchmarks.hpp"
+#include "testfuncs/manydim/testfuncs.hpp"
+#include "testfuncs/manydim/benchmarks.hpp"
 #include "expression/expr.hpp"
 #include "expression/algorithm.hpp"
 #include "oneobj/contboxconstr/benchmarkfunc.hpp"
@@ -39,8 +39,6 @@
 
 using namespace snowgoose::expression;
 using namespace OPTITEST;
-  
-
 
 class GlobOptTest : public ::testing::Test {
  protected:
@@ -122,6 +120,8 @@ TEST_F(GlobOptTest, TestGlobOptAckley1)
 {
 	testglobopt(std::make_shared<Ackley1Benchmark<double>>(3));
 }
+
+
 
 TEST_F(GlobOptTest, TestGlobOptAckley2)
 {
@@ -893,6 +893,8 @@ TEST_F(GlobOptTest, TestGlobOptZirilli)
 {
         testglobopt(std::make_shared<ZirilliBenchmark<double>>());
 }
+
+
 
 #endif /* UTESTGLOBOPT_HPP */
 
